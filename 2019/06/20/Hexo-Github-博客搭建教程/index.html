@@ -104,11 +104,11 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://tomchangt.github.io/2019/06/20/Hexo-Github-博客搭建教程/01.png">
 <meta property="og:image" content="https://tomchangt.github.io/2019/06/20/Hexo-Github-博客搭建教程/02.jpg">
-<meta property="og:image" content="https://tomchangt.github.io/2019/06/20/Hexo-Github-博客搭建教程/03.jpg">
-<meta property="og:image" content="https://tomchangt.github.io/2019/06/20/Hexo-Github-博客搭建教程/04.jpg">
-<meta property="og:image" content="https://tomchangt.github.io/2019/06/20/Hexo-Github-博客搭建教程/05.jpg">
-<meta property="og:image" content="https://tomchangt.github.io/2019/06/20/Hexo-Github-博客搭建教程/06.jpg">
-<meta property="og:updated_time" content="2019-06-20T06:42:51.008Z">
+<meta property="og:image" content="https://tomchangt.github.io/2019/06/20/Hexo-Github-博客搭建教程/03.png">
+<meta property="og:image" content="https://tomchangt.github.io/2019/06/20/Hexo-Github-博客搭建教程/04.png">
+<meta property="og:image" content="https://tomchangt.github.io/2019/06/20/Hexo-Github-博客搭建教程/05.png">
+<meta property="og:image" content="https://tomchangt.github.io/2019/06/20/Hexo-Github-博客搭建教程/06.png">
+<meta property="og:updated_time" content="2019-06-20T06:47:19.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+Github 博客搭建教程">
 <meta name="twitter:description" content="最近有想法重新开始写博客了,随着年纪越来越大,需要有些沉淀的东西.16年的时候用hexo+github搭建过博客系统,于是花了点时间重新弄了一遍.我就稍稍分享一下搭建过程,当作是我这个博客的第一篇文章.">
@@ -388,15 +388,15 @@
 <p>Hexo命令大多可以缩写,比如<code>hexo s 、 hexo d</code>等等.<br>更多详细命令可以参照<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="noopener">官方文档</a>.</p>
 <h4 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h4><hr>
 <h5 id="1-创建Repository"><a href="#1-创建Repository" class="headerlink" title="1.创建Repository"></a>1.创建Repository</h5><p>在自己的github上新建一个repository,这里注意一下我名字tomchangt,所以我的repository name要填写tomchangt.github.io,名字遵从 yourname.github.io格式,不过这里填错了也没关系,后面可以修改回来.</p>
-<p><img src="03.jpg" alt></p>
+<p><img src="03.png" alt></p>
 <h5 id="2-链接github与本地"><a href="#2-链接github与本地" class="headerlink" title="2.链接github与本地"></a>2.链接github与本地</h5><p>打开terminal,然后输入下面命令:</p>
 <pre><code>git config --global user.name &quot;你的GitHub用户名&quot;
 git config --global user.email &quot;你的GitHub注册邮箱&quot;</code></pre><p>生成密钥SSH key:</p>
 <pre><code>ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</code></pre><p>然后找到刚才生成的.ssh文件下的文件<code>id_rsa.pub</code>密钥,用文本编辑器打开复制里面的内容.    </p>
-<p><img src="04.jpg" alt></p>
+<p><img src="04.png" alt></p>
 <p>打开你的github,在点击<code>settings</code>,在点击<code>SSH and GPG keys</code>,新建一个ssh,名字可以随便.然后将刚才复制<code>id_rsa.pub</code>里的内容复制到key里面,点击<code>add ssh key</code>即可.</p>
-<p><img src="05.jpg" alt></p>
-<p><img src="06.jpg" alt></p>
+<p><img src="05.png" alt></p>
+<p><img src="06.png" alt></p>
 <h5 id="3-配置本地hexo"><a href="#3-配置本地hexo" class="headerlink" title="3.配置本地hexo"></a>3.配置本地hexo</h5><p>在Hexo目录下的<code>_config.yml</code>文件下修改以下信息</p>
 <pre><code># Deployment
 # Docs: http://hexo.io/docs/deployment.html
@@ -534,10 +534,10 @@ git config --global user.email &quot;你的GitHub注册邮箱&quot;</code></pre>
             
             
             <div class="site-state-item site-state-categories">
-              
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
@@ -545,10 +545,10 @@ git config --global user.email &quot;你的GitHub注册邮箱&quot;</code></pre>
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/tags/index.html">
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
