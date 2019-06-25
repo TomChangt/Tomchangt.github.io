@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="tom  changt">
+  <meta name="keywords" content="Elasticsearch,JAVA,">
 
 
 
@@ -96,13 +96,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tom&#39;s Blog">
-<meta property="og:url" content="https://tomchangt.github.io/categories/其他/index.html">
+<meta name="description" content="作者所在的公司有用到elasticsearch作为搜索引擎,之前对es的理解也仅仅是在使用层面,同时公司用到的elasticsearch版本是2.x(太老了),因此想系统的学习下elasticsearch并记录下来.本系列所用到的elasticsearch6.8.">
+<meta name="keywords" content="Elasticsearch,JAVA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Elasticsearch学习笔记(一):核心概念">
+<meta property="og:url" content="https://tomchangt.github.io/2019/06/25/Elasticsearch学习笔记-一-核心概念/index.html">
 <meta property="og:site_name" content="Tom&#39;s Blog">
+<meta property="og:description" content="作者所在的公司有用到elasticsearch作为搜索引擎,之前对es的理解也仅仅是在使用层面,同时公司用到的elasticsearch版本是2.x(太老了),因此想系统的学习下elasticsearch并记录下来.本系列所用到的elasticsearch6.8.">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://tomchangt.github.io/2019/06/25/Elasticsearch学习笔记-一-核心概念/01.png">
+<meta property="og:image" content="https://tomchangt.github.io/2019/06/25/Elasticsearch学习笔记-一-核心概念/02.png">
+<meta property="og:updated_time" content="2019-06-25T13:50:44.665Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tom&#39;s Blog">
+<meta name="twitter:title" content="Elasticsearch学习笔记(一):核心概念">
+<meta name="twitter:description" content="作者所在的公司有用到elasticsearch作为搜索引擎,之前对es的理解也仅仅是在使用层面,同时公司用到的elasticsearch版本是2.x(太老了),因此想系统的学习下elasticsearch并记录下来.本系列所用到的elasticsearch6.8.">
+<meta name="twitter:image" content="https://tomchangt.github.io/2019/06/25/Elasticsearch学习笔记-一-核心概念/01.png">
 
 
 
@@ -131,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="https://tomchangt.github.io/categories/其他/">
+  <link rel="canonical" href="https://tomchangt.github.io/2019/06/25/Elasticsearch学习笔记-一-核心概念/">
 
 
 
 
 
-  <title>分类: 其他 | Tom's Blog</title>
+  <title>Elasticsearch学习笔记(一):核心概念 | Tom's Blog</title>
   
 
 
@@ -162,7 +170,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 <a href="https://github.com/TomChangt" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -288,53 +296,277 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>其他<small>分类</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tomchangt.github.io/2019/06/25/Elasticsearch学习笔记-一-核心概念/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tom">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tom's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/06/20/Hexo-Github-博客搭建教程/" itemprop="url">
-              
-                <span itemprop="name">Hexo+Github 博客搭建教程</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Elasticsearch学习笔记(一):核心概念</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-20T10:37:48+08:00" content="2019-06-20">
-          06-20
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-25T17:53:09+08:00">
+                2019-06-25
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/elasticsearch/" itemprop="url" rel="index">
+                    <span itemprop="name">elasticsearch</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>作者所在的公司有用到elasticsearch作为搜索引擎,之前对es的理解也仅仅是在使用层面,同时公司用到的elasticsearch版本是2.x(太老了),因此想系统的学习下elasticsearch并记录下来.本系列所用到的elasticsearch6.8.</p>
+<a id="more"></a>
+
+<h4 id="Elasticsearch简介"><a href="#Elasticsearch简介" class="headerlink" title="Elasticsearch简介"></a>Elasticsearch简介</h4><hr>
+<h5 id="关于lucene"><a href="#关于lucene" class="headerlink" title="关于lucene"></a>关于lucene</h5><p>lucene: 最先进、功能最强大的搜索库，直接基于lucene开发，非常复杂，api复杂（实现一些简单的功能，写大量的java代码），需要深入理解原理（各种索引结构）.</p>
+<h5 id="关于Elasticsearch"><a href="#关于Elasticsearch" class="headerlink" title="关于Elasticsearch"></a>关于Elasticsearch</h5><p>elasticsearch: 基于lucene，隐藏复杂性，提供简单易用的restful api接口、java api接口（还有其他语言的api接口）,开箱即用，优秀的默认参数，不需要任何额外设置，完全开源.</p>
+<blockquote>
+<ul>
+<li>分布式的文档存储引擎</li>
+<li>分布式的搜索引擎和分析引擎</li>
+<li>分布式，支持PB级数据</li>
+</ul>
+</blockquote>
+<p> 关于elasticsearch的一个传说，有一个程序员失业了，陪着自己老婆去英国伦敦学习厨师课程。程序员在失业期间想给老婆写一个菜谱搜索引擎，觉得lucene实在太复杂了，就开发了一个封装了lucene的开源项目，compass。后来程序员找到了工作，是做分布式的高性能项目的，觉得compass不够，就写了elasticsearch，让lucene变成分布式的系统。</p>
+<h4 id="Elasticsearch核心概念"><a href="#Elasticsearch核心概念" class="headerlink" title="Elasticsearch核心概念"></a>Elasticsearch核心概念</h4><hr>
+<h5 id="Near-Realtime（NRT）"><a href="#Near-Realtime（NRT）" class="headerlink" title="Near Realtime（NRT）"></a>Near Realtime（NRT）</h5><p>近实时，两个意思，从写入数据到数据可以被搜索到有一个小延迟（大概1秒）；基于es执行搜索和分析可以达到秒级.</p>
+<h5 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h5><p>集群，包含多个节点，每个节点属于哪个集群是通过一个配置（集群名称，默认是elasticsearch）来决定的，对于中小型应用来说，刚开始一个集群就一个节点很正常.</p>
+<h5 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h5><p>节点，集群中的一个节点，节点也有一个名称（默认是随机分配的），节点名称很重要（在执行运维管理操作的时候），默认节点会去加入一个名称为“elasticsearch”的集群，如果直接启动一堆节点，那么它们会自动组成一个elasticsearch集群，当然一个节点也可以组成一个elasticsearch集群.</p>
+<h5 id="Document-amp-field"><a href="#Document-amp-field" class="headerlink" title="Document&amp;field"></a>Document&amp;field</h5><p>文档，es中的最小数据单元，一个document可以是一条客户数据，一条商品分类数据，一条订单数据，通常用JSON数据结构表示，每个index下的type中，都可以去存储多个document。一个document里面有多个field，每个field就是一个数据字段。</p>
+<p><img src="01.png" alt></p>
+<h5 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h5><p>索引，包含一堆有相似结构的文档数据，比如可以有一个客户索引，商品分类索引，订单索引，索引有一个名称。一个index包含很多document，一个index就代表了一类类似的或者相同的document。比如说建立一个product index，商品索引，里面可能就存放了所有的商品数据，所有的商品document。</p>
+<h5 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h5><p>类型，每个索引里都可以有一个或多个type，type是index中的一个逻辑数据分类，一个type下的document，都有相同的field，比如博客系统，有一个索引，可以定义用户数据type，博客数据type，评论数据type。商品index，里面存放了所有的商品数据，商品document.但是商品分很多种类，每个种类的document的field可能不太一样，比如说电器商品，可能还包含一些诸如售后时间范围这样的特殊field；生鲜商品，还包含一些诸如生鲜保质期之类的特殊field、type、日化商品type，电器商品type，生鲜商品type.</p>
+<h5 id="shard"><a href="#shard" class="headerlink" title="shard"></a>shard</h5><p>单台机器无法存储大量数据，es可以将一个索引中的数据切分为多个shard，分布在多台服务器上存储。有了shard就可以横向扩展，存储更多数据，让搜索和分析等操作分布到多台服务器上去执行，提升吞吐量和性能。每个shard都是一个lucene index。</p>
+<h5 id="replica"><a href="#replica" class="headerlink" title="replica"></a>replica</h5><p>任何一个服务器随时可能故障或宕机，此时shard可能就会丢失，因此可以为每个shard创建多个replica副本。replica可以在shard故障时提供备用服务，保证数据不丢失，多个replica还可以提升搜索操作的吞吐量和性能。primary shard（建立索引时一次设置，不能修改，默认5个），replica shard（随时修改数量，默认1个），默认每个索引10个shard，5个primary shard，5个replica shard，最小的高可用配置，是2台服务器。</p>
+<p><img src="02.png" alt></p>
 
       
     </div>
+    
+    
+    
 
+    <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    tom
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://tomchangt.github.io/2019/06/25/Elasticsearch学习笔记-一-核心概念/" title="Elasticsearch学习笔记(一):核心概念">https://tomchangt.github.io/2019/06/25/Elasticsearch学习笔记-一-核心概念/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Elasticsearch/" rel="tag"><i class="fa fa-tag"></i> Elasticsearch</a>
+          
+            <a href="/tags/JAVA/" rel="tag"><i class="fa fa-tag"></i> JAVA</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/20/Hexo-Github-博客搭建教程/" rel="next" title="Hexo+Github 博客搭建教程">
+                <i class="fa fa-chevron-left"></i> Hexo+Github 博客搭建教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -342,6 +574,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDgxNi8yMTMzNw=="></div>
+    
+  </div>
+
 
         </div>
         
@@ -362,8 +600,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="tom">
           <p class="site-author-name" itemprop="name">tom</p>
@@ -453,6 +700,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Elasticsearch简介"><span class="nav-number">1.</span> <span class="nav-text">Elasticsearch简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#关于lucene"><span class="nav-number">1.1.</span> <span class="nav-text">关于lucene</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于Elasticsearch"><span class="nav-number">1.2.</span> <span class="nav-text">关于Elasticsearch</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Elasticsearch核心概念"><span class="nav-number">2.</span> <span class="nav-text">Elasticsearch核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Near-Realtime（NRT）"><span class="nav-number">2.1.</span> <span class="nav-text">Near Realtime（NRT）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cluster"><span class="nav-number">2.2.</span> <span class="nav-text">Cluster</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Node"><span class="nav-number">2.3.</span> <span class="nav-text">Node</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Document-amp-field"><span class="nav-number">2.4.</span> <span class="nav-text">Document&amp;field</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Index"><span class="nav-number">2.5.</span> <span class="nav-text">Index</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Type"><span class="nav-number">2.6.</span> <span class="nav-text">Type</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#shard"><span class="nav-number">2.7.</span> <span class="nav-text">shard</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#replica"><span class="nav-number">2.8.</span> <span class="nav-text">replica</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -582,10 +845,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -614,6 +877,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
