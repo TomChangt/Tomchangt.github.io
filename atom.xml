@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tomchangt.github.io/"/>
-  <updated>2019-07-23T14:47:26.729Z</updated>
+  <updated>2019-07-23T14:49:14.255Z</updated>
   <id>https://tomchangt.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://tomchangt.github.io/2019/07/23/spring5-1-x%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%BA%90%E7%A0%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>https://tomchangt.github.io/2019/07/23/spring5-1-x源码学习——源码环境搭建/</id>
     <published>2019-07-23T13:47:44.000Z</published>
-    <updated>2019-07-23T14:47:26.729Z</updated>
+    <updated>2019-07-23T14:49:14.255Z</updated>
     
-    <content type="html"><![CDATA[<p>作者也工作这么多年了,工作用到最多的框架就是spring了,但是从来也没有去读过spring源码,所以决定以写blog的方式记录一下我的spring源码学习之旅,本篇文章将记录spring的源码环境搭建.</p><a id="more"></a><h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><hr><p>作者用的的macbook pro.</p><p><img src="step02.png" alt></p><p>spring5要求jdk最低版本是8,所以作者用的是jdk1.8.0_111.</p><p><img src="step01.png" alt></p><p>spring源码是基于gradle构建的,所以需要安装gradle.mac下安装gradle因为还是很方便的(自行google),只不过下载可能需要科学工具,这里作者用到的是gradle 4.10.3.</p><p><img src="step03.png" alt></p><p>作者用到的ide工具是idea2019(官网直接下载旗舰版,找马云爸爸要注册码).</p><p><img src="step04.png" alt></p><blockquote><p> 这里有点要注意下,低版本的idea对gradle的支持不是很好,作者之前用idea2016导spring的时候出现过好多坑,所以建议升级到较新的idea.</p></blockquote><h4 id="spring源码下载"><a href="#spring源码下载" class="headerlink" title="spring源码下载"></a>spring源码下载</h4><hr><p>基本spring源码下载分二种,一种是git直接下载,一种是去<a href="https://github.com/spring-projects/spring-framework" target="_blank" rel="noopener">官方下载</a>zip包,这里作者是直接去官网下载spring5.1.x的zip包.</p><p><img src="step05.png" alt></p><p>在编译之前安装进入解压目录找到<code>import-into-idea.md</code>文件,这个文件告诉了你导入idea要注意的一些事项,例如先要编译<code>spring-core</code> 和 <code>spring-oxm</code> 模块等等,接下来我就用截图展示下我编译的步骤.</p><p><img src="step06.png" alt></p><p><img src="step07.png" alt></p><p><img src="step08.png" alt></p><p><img src="step09.png" alt></p><p><img src="step10.png" alt></p><p><img src="step11.png" alt></p><p>至此spring源码已经导入到idea里面了,接下来我便会开始开启我的spring源码阅读之旅.</p>]]></content>
+    <content type="html"><![CDATA[<p>作者也工作这么多年了,工作用到最多的框架就是spring了,但是从来也没有去读过spring源码,所以决定以写blog的方式记录一下我的spring源码学习之旅,本篇文章将记录spring的源码环境搭建.</p><a id="more"></a><h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><hr><p>作者用的的macbook pro.</p><p><img src="step02.png" alt></p><p>spring5要求jdk最低版本是8,所以作者用的是jdk1.8.0_111.</p><p><img src="step01.png" alt></p><p>spring源码是基于gradle构建的,所以需要安装gradle.mac下安装gradle因为还是很方便的(自行google),只不过下载可能需要科学工具,这里作者用到的是gradle 4.10.3.</p><p><img src="step03.png" alt></p><p>作者用到的ide工具是idea2019(官网直接下载旗舰版,找马云爸爸要注册码).</p><p><img src="step04.png" alt></p><blockquote><p> 这里有点要注意下,低版本的idea对gradle的支持不是很好,作者之前用idea2016导spring的时候出现过好多坑,所以建议升级到较新的idea.</p></blockquote><h4 id="spring源码下载"><a href="#spring源码下载" class="headerlink" title="spring源码下载"></a>spring源码下载</h4><hr><p>基本spring源码下载分二种,一种是git直接下载,一种是去<a href="https://github.com/spring-projects/spring-framework" target="_blank" rel="noopener">官方下载</a>zip包,这里作者是直接去官网下载spring5.1.x的zip包.</p><p><img src="step05.png" alt></p><h4 id="spring源码导入"><a href="#spring源码导入" class="headerlink" title="spring源码导入"></a>spring源码导入</h4><hr><p>在编译之前安装进入解压目录找到<code>import-into-idea.md</code>文件,这个文件告诉了你导入idea要注意的一些事项,例如先要编译<code>spring-core</code> 和 <code>spring-oxm</code> 模块等等,接下来我就用截图展示下我编译的步骤.</p><p><img src="step06.png" alt></p><p><img src="step07.png" alt></p><p><img src="step08.png" alt></p><p><img src="step09.png" alt></p><p><img src="step10.png" alt></p><p><img src="step11.png" alt></p><p>至此spring源码已经导入到idea里面了,接下来我便会开始开启我的spring源码阅读之旅.</p>]]></content>
     
     <summary type="html">
     

@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[spring5.1.x源码学习——源码环境搭建]]></title>
     <url>%2F2019%2F07%2F23%2Fspring5-1-x%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%BA%90%E7%A0%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%2F</url>
-    <content type="text"><![CDATA[作者也工作这么多年了,工作用到最多的框架就是spring了,但是从来也没有去读过spring源码,所以决定以写blog的方式记录一下我的spring源码学习之旅,本篇文章将记录spring的源码环境搭建. 环境准备 作者用的的macbook pro. spring5要求jdk最低版本是8,所以作者用的是jdk1.8.0_111. spring源码是基于gradle构建的,所以需要安装gradle.mac下安装gradle因为还是很方便的(自行google),只不过下载可能需要科学工具,这里作者用到的是gradle 4.10.3. 作者用到的ide工具是idea2019(官网直接下载旗舰版,找马云爸爸要注册码). 这里有点要注意下,低版本的idea对gradle的支持不是很好,作者之前用idea2016导spring的时候出现过好多坑,所以建议升级到较新的idea. spring源码下载 基本spring源码下载分二种,一种是git直接下载,一种是去官方下载zip包,这里作者是直接去官网下载spring5.1.x的zip包. 在编译之前安装进入解压目录找到import-into-idea.md文件,这个文件告诉了你导入idea要注意的一些事项,例如先要编译spring-core 和 spring-oxm 模块等等,接下来我就用截图展示下我编译的步骤. 至此spring源码已经导入到idea里面了,接下来我便会开始开启我的spring源码阅读之旅.]]></content>
+    <content type="text"><![CDATA[作者也工作这么多年了,工作用到最多的框架就是spring了,但是从来也没有去读过spring源码,所以决定以写blog的方式记录一下我的spring源码学习之旅,本篇文章将记录spring的源码环境搭建. 环境准备 作者用的的macbook pro. spring5要求jdk最低版本是8,所以作者用的是jdk1.8.0_111. spring源码是基于gradle构建的,所以需要安装gradle.mac下安装gradle因为还是很方便的(自行google),只不过下载可能需要科学工具,这里作者用到的是gradle 4.10.3. 作者用到的ide工具是idea2019(官网直接下载旗舰版,找马云爸爸要注册码). 这里有点要注意下,低版本的idea对gradle的支持不是很好,作者之前用idea2016导spring的时候出现过好多坑,所以建议升级到较新的idea. spring源码下载 基本spring源码下载分二种,一种是git直接下载,一种是去官方下载zip包,这里作者是直接去官网下载spring5.1.x的zip包. spring源码导入 在编译之前安装进入解压目录找到import-into-idea.md文件,这个文件告诉了你导入idea要注意的一些事项,例如先要编译spring-core 和 spring-oxm 模块等等,接下来我就用截图展示下我编译的步骤. 至此spring源码已经导入到idea里面了,接下来我便会开始开启我的spring源码阅读之旅.]]></content>
       <categories>
         <category>Java</category>
       </categories>
