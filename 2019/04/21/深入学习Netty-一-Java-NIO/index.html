@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://tomchangt.github.io/2019/04/21/深入学习Netty-一-Java-NIO/01.png">
 <meta property="og:image" content="https://tomchangt.github.io/2019/04/21/深入学习Netty-一-Java-NIO/02.png">
 <meta property="og:image" content="https://tomchangt.github.io/2019/04/21/深入学习Netty-一-Java-NIO/03.png">
-<meta property="og:updated_time" content="2019-11-22T01:53:32.006Z">
+<meta property="og:updated_time" content="2019-11-22T03:28:23.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入学习Netty(一) : Java NIO">
 <meta name="twitter:description" content="Java NIO是java 1.4之后新出的一套IO接口，这里的的新是相对于原有标准的Java IO和Java Networking接口。NIO提供了一种完全不同的操作方式。">
@@ -666,56 +666,87 @@ while(keyIterator.hasNext()) {
 <h6 id="close"><a href="#close" class="headerlink" title="close()"></a>close()</h6><p>当操作Selector完毕后,需要调用close方法.close的调用会关闭Selector并使相关的SelectionKey都无效.channel本身不管被关闭.</p>
 <h6 id="完整的Selector案例"><a href="#完整的Selector案例" class="headerlink" title="完整的Selector案例"></a>完整的Selector案例</h6><p>Server端:</p>
 <pre><code>public class NioServer {
+
     private static Map&lt;String,SocketChannel&gt; channelMap = new HashMap();
+    private static Map&lt;Integer, BiConsumer&lt;SelectionKey,Selector&gt;&gt; rule = new HashMap();
+
+    public static void acceptable(SelectionKey selectionKey,Selector selector){
+        try {
+            ServerSocketChannel server = (ServerSocketChannel)selectionKey.channel();
+            SocketChannel client = server.accept();
+            client.configureBlocking(false);
+            client.register(selector,SelectionKey.OP_READ);
+            String key = &quot;【&quot;+ UUID.randomUUID().toString() +&quot;】&quot;;
+            channelMap.put(key,client);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void readable(SelectionKey selectionKey,Selector selector){
+        try {
+            SocketChannel client = (SocketChannel)selectionKey.channel();
+            ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+
+            int count = client.read(byteBuffer);
+            if(count&gt;0) {
+                byteBuffer.flip();
+
+                Charset charset = Charset.forName(&quot;utf-8&quot;);
+
+                String receivedMessage = String.valueOf(charset.decode(byteBuffer).array());
+
+                String clientKey = channelMap.entrySet().stream().filter(entry -&gt; entry.getValue() == client).findFirst().
+                        map(entry -&gt; entry.getKey()).orElse(null);
+
+                final String clientReceivedMessage = clientKey + &quot; : &quot; + receivedMessage;
+
+                System.out.println(clientReceivedMessage);
+
+                //把消息广播出去
+                channelMap.entrySet().stream().filter(entry-&gt;!entry.getKey().equals(clientKey))
+                        .forEach(entry-&gt;{
+
+                            try {
+                                SocketChannel otherClient = entry.getValue();
+                                ByteBuffer writeBuffer = ByteBuffer.allocate(1024);
+                                writeBuffer.put(clientReceivedMessage.getBytes());
+                                writeBuffer.flip();
+                                otherClient.write(writeBuffer);
+                            }catch (Exception e){
+                                e.printStackTrace();
+                            }
+                        });
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     public static void main(String[] args) {
+
+        rule.put(SelectionKey.OP_ACCEPT,NioServer::acceptable);
+        rule.put(SelectionKey.OP_READ,NioServer::readable);
+
         try {
             ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
             serverSocketChannel.configureBlocking(false);
             ServerSocket socket = serverSocketChannel.socket();
             socket.bind(new InetSocketAddress(&quot;127.0.0.1&quot;,8899));
+
             Selector selector = Selector.open();
             serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+
             while (true){
                 try {
                     selector.select();
+
                     Set&lt;SelectionKey&gt; selectionKeys = selector.selectedKeys();
+
                     selectionKeys.forEach(selectionKey -&gt; {
-                        final SocketChannel client;
-                        try {
-                            if(selectionKey.isAcceptable()){
-                                ServerSocketChannel server = (ServerSocketChannel)selectionKey.channel();
-                                client = server.accept();
-                                client.configureBlocking(false);
-                                client.register(selector,SelectionKey.OP_READ);
-                                String key = &quot;【&quot;+ UUID.randomUUID().toString() +&quot;】&quot;;
-                                channelMap.put(key,client);
-                            }else if(selectionKey.isReadable()){
-                                client = (SocketChannel)selectionKey.channel();
-                                ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
-                                int count = client.read(byteBuffer);
-                                if(count&gt;0){
-                                    byteBuffer.flip();
-                                    Charset charset = Charset.forName(&quot;utf-8&quot;);
-                                    String receivedMessage = String.valueOf(charset.decode(byteBuffer).array());
-                                    System.out.println(client + &quot; : &quot; + receivedMessage);
-                                    String clientKey = channelMap.entrySet().stream().filter(entry -&gt; entry.getValue() == client).findFirst().
-                                            map(entry -&gt; entry.getKey()).orElse(null);
-                                    channelMap.entrySet().stream().filter(entry-&gt;!entry.getKey().equals(clientKey))
-                                            .forEach(entry-&gt;{
-                                                try {
-                                                    SocketChannel otherClient = entry.getValue();
-                                                    ByteBuffer writeBuffer = ByteBuffer.allocate(1024);
-                                                    writeBuffer.put((clientKey + &quot; : &quot; + receivedMessage).getBytes());
-                                                    writeBuffer.flip();
-                                                    otherClient.write(writeBuffer);
-                                                }catch (Exception e){
-                                                    e.printStackTrace();
-                                                }
-                                            });
-                                }
-                            }
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                        if (selectionKey.isAcceptable()) {
+                            rule.get(SelectionKey.OP_ACCEPT).accept(selectionKey, selector);
+                        } else if (selectionKey.isReadable()) {
+                            rule.get(SelectionKey.OP_READ).accept(selectionKey, selector);
                         }
                     });
                     selectionKeys.clear();
@@ -727,7 +758,7 @@ while(keyIterator.hasNext()) {
             e.printStackTrace();
         }
     }
-}</code></pre><p>Client端:</p>
+}   </code></pre><p>Client端:</p>
 <pre><code>public class NioClient {
     public static void main(String[] args) {
         try {
@@ -1095,7 +1126,7 @@ while(keyIterator.hasNext()) {
 <div class="theme-info">
   <div class="powered-by"></div>
   <i class="fa fa-pencil-square-o"></i>
-  <span class="post-count">博客全站共4.2k字</span>
+  <span class="post-count">博客全站共4.3k字</span>
 </div>
         
 
