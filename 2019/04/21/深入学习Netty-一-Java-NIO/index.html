@@ -104,14 +104,14 @@
 <meta property="og:site_name" content="Tom&#39;s Blog">
 <meta property="og:description" content="Java NIO是java 1.4之后新出的一套IO接口，这里的的新是相对于原有标准的Java IO和Java Networking接口。NIO提供了一种完全不同的操作方式。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://tomchangt.github.io/2019/04/21/深入学习Netty-一-Java-NIO/01.jpg">
-<meta property="og:image" content="https://tomchangt.github.io/2019/04/21/深入学习Netty-一-Java-NIO/02.jpg">
-<meta property="og:image" content="https://tomchangt.github.io/2019/04/21/深入学习Netty-一-Java-NIO/03.jpg">
-<meta property="og:updated_time" content="2019-11-21T11:07:00.603Z">
+<meta property="og:image" content="https://tomchangt.github.io/2019/04/21/深入学习Netty-一-Java-NIO/01.png">
+<meta property="og:image" content="https://tomchangt.github.io/2019/04/21/深入学习Netty-一-Java-NIO/02.png">
+<meta property="og:image" content="https://tomchangt.github.io/2019/04/21/深入学习Netty-一-Java-NIO/03.png">
+<meta property="og:updated_time" content="2019-11-22T01:53:32.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入学习Netty(一) : Java NIO">
 <meta name="twitter:description" content="Java NIO是java 1.4之后新出的一套IO接口，这里的的新是相对于原有标准的Java IO和Java Networking接口。NIO提供了一种完全不同的操作方式。">
-<meta name="twitter:image" content="https://tomchangt.github.io/2019/04/21/深入学习Netty-一-Java-NIO/01.jpg">
+<meta name="twitter:image" content="https://tomchangt.github.io/2019/04/21/深入学习Netty-一-Java-NIO/01.png">
 
 
 
@@ -445,7 +445,7 @@
 </blockquote>
 <p>整个NIO体系包含的类远远不止这几个，但是在我看来Channel,Buffer和Selector组成了这个核心的API.</p>
 <h5 id="通道和缓冲区（Channel-and-Buffer）"><a href="#通道和缓冲区（Channel-and-Buffer）" class="headerlink" title="通道和缓冲区（Channel and Buffer）"></a>通道和缓冲区（Channel and Buffer）</h5><p>通常来说NIO中的所有IO都是从Channel开始的。Channel和流有点类似。通过Channel，我们即可以从Channel把数据写到Buffer中，也可以把数据冲Buffer写入到Channel,如下所示:</p>
-<p><img src="01.jpg" alt></p>
+<p><img src="01.png" alt></p>
 <p>基本的Channel实现有以下这些：</p>
 <blockquote>
 <ul>
@@ -469,7 +469,7 @@
 </blockquote>
 <p>这些Buffer涵盖了可以通过IO操作的基础类型：byte,short,int,long,float,double以及characters. NIO实际上还包含一种MappedBytesBuffer,一般用于和内存映射的文件.</p>
 <h5 id="选择器（Selector）"><a href="#选择器（Selector）" class="headerlink" title="选择器（Selector）"></a>选择器（Selector）</h5><p>Selector运行单线程处理多个Channel，如果你的应用打开了多个通道，但每个连接的流量都很低，使用Selector就会很方便。例如在一个聊天服务器中。要使用Selector, 得向Selector注册Channel，然后调用它的select()方法。这个方法会一直阻塞到某个注册的通道有事件就绪。一旦这个方法返回，线程就可以处理这些事件，事件的例子有如新的连接进来、数据接收等。</p>
-<p><img src="02.jpg" alt></p>
+<p><img src="02.png" alt></p>
 <h4 id="缓冲区-Buffer"><a href="#缓冲区-Buffer" class="headerlink" title="缓冲区(Buffer)"></a>缓冲区(Buffer)</h4><hr>
 <p>buffer就是一块内存，你可以写入数据，并且在之后读取它。这块内存被包装成NIO buffer对象，它提供了一些方法来让你更简单地操作内存。</p>
 <h5 id="Buffer的基本使用"><a href="#Buffer的基本使用" class="headerlink" title="Buffer的基本使用"></a>Buffer的基本使用</h5><p>利用Buffer读写数据，通常遵循四个步骤:</p>
@@ -514,7 +514,7 @@
 </blockquote>
 <p>position和limit的值在读/写模式中是不一样的,capacity的值永远表示buffer的大小。</p>
 <p>下图解释了在读/写模式中Capacity,Position和Limit的含义:</p>
-<p><img src="03.jpg" alt></p>
+<p><img src="03.png" alt></p>
 <h5 id="关于-Direct-Buffer-和-Non-Direct-Buffer-的区别"><a href="#关于-Direct-Buffer-和-Non-Direct-Buffer-的区别" class="headerlink" title="关于 Direct Buffer 和 Non-Direct Buffer 的区别"></a>关于 Direct Buffer 和 Non-Direct Buffer 的区别</h5><p>Direct Buffer:</p>
 <blockquote>
 <ul>
