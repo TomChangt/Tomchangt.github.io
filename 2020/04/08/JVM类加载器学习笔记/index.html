@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="tom  changt">
+  <meta name="keywords" content="Java,Jvm,">
 
 
 
@@ -96,14 +96,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://tomchangt.github.io/tags/index.html">
+<meta name="description" content="记录一下学习jvm类加载这一章节的知识点，方便日后查阅.">
+<meta name="keywords" content="Java,Jvm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM类加载器学习笔记">
+<meta property="og:url" content="https://tomchangt.github.io/2020/04/08/JVM类加载器学习笔记/index.html">
 <meta property="og:site_name" content="Tom&#39;s Blog">
+<meta property="og:description" content="记录一下学习jvm类加载这一章节的知识点，方便日后查阅.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-20T06:57:34.409Z">
+<meta property="og:image" content="https://tomchangt.github.io/2020/04/08/JVM类加载器学习笔记/01.png">
+<meta property="og:image" content="https://tomchangt.github.io/2020/04/08/JVM类加载器学习笔记/02.png">
+<meta property="og:updated_time" content="2020-04-08T08:08:34.683Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="JVM类加载器学习笔记">
+<meta name="twitter:description" content="记录一下学习jvm类加载这一章节的知识点，方便日后查阅.">
+<meta name="twitter:image" content="https://tomchangt.github.io/2020/04/08/JVM类加载器学习笔记/01.png">
 
 
 
@@ -132,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="https://tomchangt.github.io/tags/">
+  <link rel="canonical" href="https://tomchangt.github.io/2020/04/08/JVM类加载器学习笔记/">
 
 
 
 
 
-  <title>tags | Tom's Blog</title>
+  <title>JVM类加载器学习笔记 | Tom's Blog</title>
   
 
 
@@ -291,40 +298,305 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tomchangt.github.io/2020/04/08/JVM类加载器学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tom">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tom's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h2 class="post-title" itemprop="name headline">tags</h2>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 7 个标签
+          <h2 class="post-title" itemprop="name headline">JVM类加载器学习笔记</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-08T15:44:45+08:00">
+                2020-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  498
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
             </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Hexo/" style="font-size: 12px; color: #ccc">Hexo</a> <a href="/tags/Java/" style="font-size: 30px; color: #111">Java</a> <a href="/tags/Jvm/" style="font-size: 12px; color: #ccc">Jvm</a> <a href="/tags/NIO/" style="font-size: 12px; color: #ccc">NIO</a> <a href="/tags/Netty/" style="font-size: 12px; color: #ccc">Netty</a> <a href="/tags/NexT/" style="font-size: 12px; color: #ccc">NexT</a> <a href="/tags/Spring/" style="font-size: 12px; color: #ccc">Spring</a>
-            </div>
-          </div>
-        
-      </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>记录一下学习jvm类加载这一章节的知识点，方便日后查阅.</p>
+<a id="more"></a>
+
+<h4 id="类的加载、连接与初始化"><a href="#类的加载、连接与初始化" class="headerlink" title="类的加载、连接与初始化"></a>类的加载、连接与初始化</h4><hr>
+<ul>
+<li><p>加载：查找并加载类的二进制数据</p>
+</li>
+<li><p>连接:</p>
+<ul>
+<li>验证：确保被加载的类的正确性</li>
+<li>准备：为类的静态变量分配内存，并将其初始化为默认值</li>
+<li>解析：把类中的符号引用转换为直接引用</li>
+</ul>
+</li>
+<li><p>初始化：<code>为类的静态变量赋予正确的初始值</code></p>
+</li>
+</ul>
+<h4 id="Java程序对类的使用方式可分为两种"><a href="#Java程序对类的使用方式可分为两种" class="headerlink" title="Java程序对类的使用方式可分为两种"></a>Java程序对类的使用方式可分为两种</h4><hr>
+<ul>
+<li><p>主动使用（<code>七种</code>）</p>
+<ul>
+<li>创建类的实例</li>
+<li>访问每个类或者接口的静态变量，或者对该静态遍历赋值</li>
+<li>调用类的静态方法</li>
+<li>反射（如Class.forName(“com.xx.Test”)）</li>
+<li>初始化一个类的子类</li>
+<li>Java虚拟机启动时被标明为启动类的类（main方法）</li>
+<li>JDK1.7开始提供的动态语言支持：java.lang.invoke.MethodHandle实例的解析结果REF_getStatic,REF_putStatic,REF_invokeStatic句柄对应的类没有初始化,则初始化</li>
+</ul>
+</li>
+<li><p>被动使用</p>
+</li>
+<li><p>所有的Java虚拟机实现必须在每个类或者接口被Java程序<code>首次主动使用</code>时才初始化他们</p>
+</li>
+</ul>
+<h4 id="类的加载"><a href="#类的加载" class="headerlink" title="类的加载"></a>类的加载</h4><hr>
+<ul>
+<li><p>类的加载:指的是将类的。class文件中的二进制数据读入到内存中，将其放在运行时数据区的方法区内，然后在内存中创建一个Java.lang.Class对象（规范并没有说明Class对象位于哪里，HotSpot虚拟机将其放在了方法区中）用来封装类在方法区的数据结构</p>
+</li>
+<li><p>类的加载方式</p>
+<ul>
+<li>从本地系统中直接加载</li>
+<li>通过网络下载.class文件</li>
+<li>从zip，jar等归档文件中加载.class文件</li>
+<li>从专有数据库中提取.class文件</li>
+<li>将java源文件动态编译为.class文件（将JAVA源文件动态编译这种情况会在动态代理和web开发中jsp转换成Servlet）</li>
+</ul>
+</li>
+<li><p>类加载时序图</p>
+</li>
+</ul>
+<p><img src="01.png" alt>  </p>
+<ul>
+<li>类加载过程</li>
+</ul>
+<p><img src="02.png" alt>  </p>
+
       
     </div>
     
     
     
+
+    <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    tom
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://tomchangt.github.io/2020/04/08/JVM类加载器学习笔记/" title="JVM类加载器学习笔记">https://tomchangt.github.io/2020/04/08/JVM类加载器学习笔记/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/Jvm/" rel="tag"><i class="fa fa-tag"></i> Jvm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/23/spring5-1-x源码学习——源码环境搭建/" rel="next" title="spring5.1.x源码学习——源码环境搭建">
+                <i class="fa fa-chevron-left"></i> spring5.1.x源码学习——源码环境搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
   </div>
 
 
@@ -333,6 +605,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDgxNi8yMTMzNw=="></div>
+    
+  </div>
+
 
         </div>
         
@@ -353,8 +631,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="tom">
           <p class="site-author-name" itemprop="name">tom</p>
@@ -444,6 +731,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#类的加载、连接与初始化"><span class="nav-number">1.</span> <span class="nav-text">类的加载、连接与初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java程序对类的使用方式可分为两种"><span class="nav-number">2.</span> <span class="nav-text">Java程序对类的使用方式可分为两种</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类的加载"><span class="nav-number">3.</span> <span class="nav-text">类的加载</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -573,10 +876,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -605,6 +908,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
